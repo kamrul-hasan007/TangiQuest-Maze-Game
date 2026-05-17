@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>TangiQuest Advanced Maze Game</title>
+
+  <!-- Optional favicon -->
+  <link rel="icon" type="image/png" href="C:\Users\Kamrul\Downloads\TangiQuest Maze Game\images\artificial-intelligence.png" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <main class="app">
+
+    <section class="hero">
+      <div class="hero-content">
+
+        <div class="title-row">
+          <img 
+            src="C:\Users\Kamrul\Downloads\TangiQuest Maze Game\images\artificial-intelligence.png" 
+            alt="TangiQuest Logo" 
+            class="game-logo"
+          />
+
+          <div>
+            <p class="tag">RFID-Based Tangible HCI Game</p>
+            <h1>TangiQuest Advanced Maze Game</h1>
+          </div>
+        </div>
+
+        <p class="subtitle">
+          Scan physical RFID cards to guide the robot through Easy, Medium, and Hard maze levels.
+        </p>
+      </div>
+
+      <div class="button-group">
+        <button id="soundBtn" class="connect-btn secondary" type="button">
+          Enable Sound
+        </button>
+
+        <button id="connectBtn" class="connect-btn" type="button">
+          Connect Arduino
+        </button>
+      </div>
+    </section>
+
+    <section class="progress-card">
+      <div>
+        <p>Difficulty</p>
+        <h2 id="difficultyText">Easy</h2>
+      </div>
+
+      <div>
+        <p>Current Level</p>
+        <h2><span id="levelText">1</span> / 15</h2>
+      </div>
+
+      <div>
+        <p>Score</p>
+        <h2 id="scoreText">0</h2>
+      </div>
+
+      <div>
+        <p>Moves</p>
+        <h2 id="movesText">0</h2>
+      </div>
+
+      <div>
+        <p>Direction</p>
+        <h2 id="directionText">→</h2>
+      </div>
+    </section>
+
+    <section class="dashboard">
+      <div class="card">
+        <div class="board-header">
+          <h2>Game Board</h2>
+          <p id="levelGoal">Reach the treasure and scan SUBMIT.</p>
+        </div>
+
+        <div id="board" class="board"></div>
+
+        <div class="legend">
+          <span><b class="robot-box"></b> Robot</span>
+          <span><b class="treasure-box"></b> Treasure</span>
+          <span><b class="success-box"></b> Found</span>
+          <span><b class="wall-box"></b> Wall</span>
+          <span><b class="path-box"></b> Path</span>
+        </div>
+      </div>
+
+      <div class="side-panel">
+        <div class="status-card">
+          <h2>Status</h2>
+          <p id="statusText">Connect Arduino to start.</p>
+        </div>
+
+        <div class="card mini">
+          <h2>Scanned Sequence</h2>
+          <div id="sequenceList" class="sequence-list">
+            <span>No card scanned yet</span>
+          </div>
+        </div>
+
+        <div class="card mini">
+          <h2>RFID Card Actions</h2>
+          <ul class="actions">
+            <li><b>START</b> - Start or restart current level</li>
+            <li><b>MOVE</b> - Move robot forward</li>
+            <li><b>LEFT</b> - Turn robot left</li>
+            <li><b>SUBMIT</b> - Check if robot reached treasure</li>
+          </ul>
+        </div>
+
+        <div class="card mini">
+          <h2>Difficulty Rule</h2>
+          <p class="help-text">
+            Levels 1–5 are Easy. Levels 6–10 are Medium. Levels 11–15 are Hard.
+            After each success, the treasure moves to a new position.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast">Message</div>
+
+  <script src="script.js"></script>
+</body>
+</html>

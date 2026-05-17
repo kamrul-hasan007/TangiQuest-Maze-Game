@@ -1,0 +1,397 @@
+* {
+  box-sizing: border-box;
+}
+.title-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.game-logo {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+}
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: radial-gradient(circle at top left, #1e3a8a, #020617 45%, #111827);
+  color: #f9fafb;
+}
+
+.app {
+  max-width: 1220px;
+  margin: auto;
+  padding: 28px;
+}
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+  margin-bottom: 22px;
+}
+
+.tag {
+  color: #67e8f9;
+  font-weight: bold;
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+}
+
+h1 {
+  font-size: 42px;
+  margin: 0;
+}
+
+.subtitle {
+  color: #cbd5e1;
+  font-size: 17px;
+  max-width: 680px;
+}
+
+.button-group {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.connect-btn {
+  background: linear-gradient(135deg, #22c55e, #14b8a6);
+  color: white;
+  border: none;
+  padding: 14px 22px;
+  border-radius: 14px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 12px 25px rgba(20, 184, 166, 0.25);
+}
+
+.connect-btn:hover {
+  transform: translateY(-2px);
+}
+
+.connect-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.secondary {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+}
+
+.progress-card {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 22px;
+}
+
+.progress-card div,
+.card,
+.status-card {
+  background: rgba(255, 255, 255, 0.09);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 22px;
+  padding: 18px;
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.25);
+}
+
+.progress-card p {
+  margin: 0;
+  color: #cbd5e1;
+}
+
+.progress-card h2 {
+  margin: 8px 0 0;
+  font-size: 28px;
+}
+
+.dashboard {
+  display: grid;
+  grid-template-columns: 1.35fr 0.8fr;
+  gap: 22px;
+}
+
+.card h2,
+.status-card h2 {
+  margin-top: 0;
+}
+
+.board-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.board-header p {
+  color: #cbd5e1;
+  margin: 0;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(6, 78px);
+  grid-template-rows: repeat(6, 78px);
+  gap: 8px;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(15, 23, 42, 0.8);
+  border-radius: 20px;
+}
+
+.cell {
+  width: 78px;
+  height: 78px;
+  border-radius: 18px;
+  background: #334155;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  transition: 0.25s;
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+
+.cell.path {
+  background: #475569;
+}
+
+.cell.wall {
+  background: #020617;
+}
+
+.cell.wall::after {
+  content: "⬛";
+  font-size: 26px;
+}
+
+.cell.treasure {
+  background: linear-gradient(135deg, #facc15, #fb923c);
+  box-shadow: 0 0 18px rgba(250, 204, 21, 0.45);
+}
+
+.cell.robot {
+  background: linear-gradient(135deg, #38bdf8, #2563eb);
+  transform: scale(1.06);
+  box-shadow: 0 0 25px rgba(56, 189, 248, 0.7);
+}
+
+.cell.found {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  box-shadow: 0 0 28px rgba(34, 197, 94, 0.85);
+  animation: foundPulse 0.9s infinite alternate;
+}
+
+@keyframes foundPulse {
+  from {
+    transform: scale(1.05);
+  }
+  to {
+    transform: scale(1.12);
+  }
+}
+
+.robot-img {
+  width: 62px;
+  height: 62px;
+  object-fit: contain;
+  z-index: 2;
+}
+
+.treasure-img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  z-index: 1;
+}
+
+.direction-badge {
+  position: absolute;
+  right: 4px;
+  bottom: 4px;
+  background: rgba(15, 23, 42, 0.85);
+  color: white;
+  font-size: 18px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.success-check {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  background: white;
+  color: #16a34a;
+  font-size: 18px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.legend {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 18px;
+  color: #cbd5e1;
+  flex-wrap: wrap;
+}
+
+.legend b {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border-radius: 5px;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+.robot-box {
+  background: #38bdf8;
+}
+
+.treasure-box {
+  background: #facc15;
+}
+
+.success-box {
+  background: #22c55e;
+}
+
+.wall-box {
+  background: #020617;
+}
+
+.path-box {
+  background: #475569;
+}
+
+.side-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.status-card {
+  border-left: 5px solid #38bdf8;
+}
+
+.status-card.success {
+  border-left-color: #22c55e;
+}
+
+.status-card.error {
+  border-left-color: #ef4444;
+}
+
+.status-card.warning {
+  border-left-color: #f59e0b;
+}
+
+.mini {
+  padding: 18px;
+}
+
+.sequence-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.sequence-list span {
+  background: rgba(56, 189, 248, 0.18);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  padding: 8px 10px;
+  border-radius: 10px;
+  color: #e0f2fe;
+  font-weight: bold;
+}
+
+.actions {
+  padding-left: 18px;
+  color: #cbd5e1;
+  line-height: 1.8;
+}
+
+.help-text {
+  color: #cbd5e1;
+  line-height: 1.6;
+}
+
+.toast {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background: #020617;
+  color: white;
+  padding: 14px 18px;
+  border-radius: 14px;
+  border: 1px solid #334155;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 0.3s;
+  z-index: 20;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 1000px) {
+  .dashboard {
+    grid-template-columns: 1fr;
+  }
+
+  .progress-card {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .hero {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 650px) {
+  .board {
+    grid-template-columns: repeat(6, 48px);
+    grid-template-rows: repeat(6, 48px);
+  }
+
+  .cell {
+    width: 48px;
+    height: 48px;
+    font-size: 22px;
+  }
+
+  .robot-img,
+  .treasure-img {
+    width: 40px;
+    height: 40px;
+  }
+
+  h1 {
+    font-size: 32px;
+  }
+
+  .progress-card {
+    grid-template-columns: 1fr;
+  }
+}
