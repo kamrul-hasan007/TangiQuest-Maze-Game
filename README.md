@@ -267,7 +267,7 @@ This project is currently working as an RFID-based control system for the TangiQ
 
 This project is open-source and can be used for educational and research purposes.
 
-You may add an MIT License file if you want others to use, modify, and share your project with proper credit.
+
 
 ---
 
