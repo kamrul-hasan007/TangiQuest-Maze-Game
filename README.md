@@ -263,9 +263,9 @@ This project is currently working as an RFID-based control system for the TangiQ
 
 ---
 
-## License
+## 📄 License
 
-This project is open-source and can be used for educational and research purposes.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 
 
@@ -279,5 +279,4 @@ Department of Computer Science
 American International University-Bangladesh
 GitHub: [kamrul-hasan007](https://github.com/kamrul-hasan007)
 
-```
-```
+
